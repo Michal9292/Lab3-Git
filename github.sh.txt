@@ -1,0 +1,210 @@
+# Wprowadzenie do zatwierdzania Git
+git commit
+
+# Rozgałęzienia w Git
+git branch bugFix
+git checkout bugFix
+
+# Scalanie poziomów w Git
+
+git branch bugFix
+git checkout bugFix
+git commit
+git checkout main
+git commit
+git merge bugFix
+
+
+# Wprowadzenie do level rebase
+
+git branch bugFix
+git checkout bugFix
+git commit
+git checkout main
+git commit
+git checkout bugFix
+git rebase main
+
+# Odłączenie HEAD 
+
+git checkout 
+git commit
+
+# Poziom względny odniesienia 1
+
+git checkout bugFix^
+
+# Poziom względny odniesienia 2 
+
+git checkout bugFix^
+git checkout HEAD~2
+git branch -f main HEAD~3
+git branch -f bugFix HEAD~1
+
+# Odwrócenie zmian w Git 
+
+git checkout local
+git reset HEAD~1
+
+git checkout pushed
+git revert HEAD
+
+# Wstęp typu cherry-pick
+
+git cherry-pick
+
+
+# Interaktywne wprowadzenie do rebase
+
+git checkout main
+git rebase -i HEAD~4
+
+
+# Tylko 1 commit
+
+git checkout main
+git cherry-pick bugFix
+
+# Zobowiazania do zonglowiania poziomami 1
+
+git checkout caption
+git rebase -i HEAD~2
+git commit --amend
+git rebase -i HEAD~2
+git checkout main
+git merge caption
+
+# Zobowiazania do zonglowiania poziomami 2
+
+git checkout main
+git cherry-pick C2
+git commit --amend
+git cherry-pick C3
+
+# Poziom znacznikow Git
+
+git tag v1 side~1
+git tag v0 main~2
+git checkout v1
+
+# Poziom git opisz
+
+git commit
+
+
+# Poziomowanie bazowe ponad 9000 razy 
+
+git rebase main bugFix
+git rebase bugFix side
+git rebase side another
+git rebase another main
+
+# Poziom wielosc rodzicow 
+
+git branch bugWork main ^^2^
+
+# Galaz pozioma spaghetti 
+
+git checkout one
+git cherry-pick C4 C3 C2
+
+git checkout two
+git cherry-pick C5 C4 C3 C2
+
+git branch -f three C2
+
+
+# Wprowadzenie do klonu
+
+git clone
+
+# Remote branches
+
+git commit
+git checkout o/main
+
+# Git Fetchin
+
+git fetch
+
+# Git Pullin
+
+Git pull
+
+# Faking Teamwork
+
+git clone 
+git fakeTeamwork 2 
+git commit 
+git pull
+
+# Git Pushin
+
+git commit 
+git push
+
+# Diverged history 
+
+git clone
+git FakeTeamwork
+git commit
+git pull --rebase
+git push
+
+# Locked main
+
+git branch -f main o/main
+git checkout -b feature C2
+git push origin feature
+
+# Push main
+
+git fetch
+git rebase o/main side1
+git rebase side1 side2
+git rebase side2 side3
+git rebase side3 main
+git push 
+
+# Merging with remotes
+
+git checkout main
+git pull
+git merge side1
+git merge side2
+git merge side3
+git push
+
+# Remote tracking
+
+git checkout -b side o/main
+git commit
+git pull --rebase
+git push
+
+# Git push arguments 
+
+git push origin main
+git push origin foo
+
+# Git push arguments - Expanded!
+
+git push origin main^:foo
+git push origin foo:main
+
+# Fetch arguments 
+
+git fetch origin c3:foo
+git fetch origin c6:main
+git checkout foo
+git merge main
+
+# Source of nothing
+
+git push origin :foo
+git fetch origin :bar
+
+# Pull arguments 
+
+git pull origin c3:foo
+git pull origin c2:side
